@@ -8,9 +8,7 @@ namespace nsa {
     Database::Database(const std::string& filename)
         : filename{filename}
     {
-        file.open(filename, std::ios::in);
         fetchUsers();
-        file.close();
     }
 
     Database::~Database()
@@ -68,6 +66,8 @@ namespace nsa {
 
     void Database::fetchUsers()
     {
+        file.open(filename, std::ios::in);
+
         std::string line;
         while (!file.eof())
         {
@@ -75,6 +75,8 @@ namespace nsa {
             if (line != "")
                 users.push_back(parseLineToUser(line));
         }
+
+        file.close();
     }
 
     void Database::writeDatabase() const
