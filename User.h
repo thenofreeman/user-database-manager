@@ -47,6 +47,15 @@ namespace nsa {
                 return (dob < other.dob);
             }
 
+            bool operator==(const User& other) const
+            {
+                if (this->name != other.name) return false;
+                if (this->dob != other.dob) return false;
+                if (this->birthplace != other.birthplace) return false;
+
+                return true;
+            }
+
         private:
             std::string name;
             std::string dob;
