@@ -29,6 +29,7 @@ namespace nsa {
 
             void sort();
             void save() const;
+            std::size_t getSize() const;
 
         private:
             std::string filename;

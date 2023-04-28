@@ -1,6 +1,7 @@
 #include "Database.h"
 
 #include <algorithm>
+// #include <iterator>
 
 namespace nsa {
 
@@ -34,7 +35,14 @@ namespace nsa {
 
     bool Database::removeUser(const std::size_t& id)
     {
-        // TODO
+        auto erased = std::erase_if(users, [&](const User& user) {
+            return user.getId() == id;
+        });
+
+        // users.erase(it);
+        if (erased > 0)
+            return true;
+
         return false;
     }
 
@@ -51,6 +59,11 @@ namespace nsa {
     void Database::save() const
     {
         writeDatabase();
+    }
+
+    std::size_t Database::getSize() const
+    {
+        return users.size();
     }
 
     void Database::fetchUsers()

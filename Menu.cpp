@@ -30,7 +30,7 @@ int getSelection(const std::string& prompt, const int& high, const int& low)
             }
             else
             {
-                std::cout << "\nNumber not with range: [" << low << ", " << high << "]" << '\n';
+                std::cout << "\nNumber not within range: [" << low << ", " << high << "]" << '\n';
             }
         }
         else

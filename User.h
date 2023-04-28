@@ -30,7 +30,7 @@ namespace nsa {
             friend std::ostream& operator<<(std::ostream& os, const User& user)
             {
                 os //<< "ID-" << user.id << ": "
-                   << user.name << " was born in "
+                   << user.name << " (#" << user.id << ") was born in "
                    << user.birthplace << " on "
                    << user.dob << ".";
 
