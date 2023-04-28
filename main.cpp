@@ -13,7 +13,6 @@ int main()
     {
         displayMenu();
 
-        std::size_t id;
         switch(getSelection("Make a selection", 4))
         {
             case LIST:
@@ -22,14 +21,15 @@ int main()
                 break;
             case ADD:
                 // db.addUser()
-                break;
             case REMOVE:
-                id = getSelection("Enter an ID to delete");
+            {
+                std::size_t id = getSelection("Enter an ID to delete");
                 if (db.removeUser(id))
                     std::cout << "User with ID " << id << " removed." << '\n';
                 else
                     std::cout << "User with ID " << id << " not found." << '\n';
                 break;
+            }
             case SORT:
                 db.sort();
                 break;
